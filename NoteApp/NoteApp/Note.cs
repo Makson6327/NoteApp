@@ -10,7 +10,7 @@ namespace NoteApp
     /// <summary>
     /// Класс заметки, хранящий информацию о названии, категории, тексте, времени создания и времени последнего редактирования заметки.
     /// </summary>
-    public class Note
+    public class Note: ICloneable
     {
         /// <summary>
         /// Название заметки.
@@ -88,7 +88,8 @@ namespace NoteApp
         /// <param name="noteText"> Текст заметки. </param>
         /// <param name="creationTime"> Время создания заметки. </param>
         /// <param name="lastUpdatedTime">Время последнего редактирования заметки. </param>
-        public Note(string noteName, NoteCategory noteCategory, string noteText, DateTime creationTime, DateTime lastUpdatedTime)
+        public Note(string noteName, NoteCategory noteCategory, string noteText,
+            DateTime creationTime, DateTime lastUpdatedTime)
         {
             _noteName = noteName;
             _noteCategory = noteCategory;
@@ -108,6 +109,11 @@ namespace NoteApp
             _noteCategory = noteCategory;
             _noteText = noteText;
             _lastUpdatedTime = DateTime.Now;
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
