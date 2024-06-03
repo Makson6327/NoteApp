@@ -67,6 +67,5 @@ namespace NoteApp
         {
             _noteList = noteList;
         }
-        //for commit
     }
 }
